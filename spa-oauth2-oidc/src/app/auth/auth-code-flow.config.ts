@@ -1,6 +1,7 @@
 import { AuthConfig } from 'angular-oauth2-oidc';
 export const environment = {
   oauthUrl: 'http://localhost:9090',
+  apiUrl: 'http://localhost:8081'
 };
 export const authCodeFlowConfig: AuthConfig = {
   issuer: environment.oauthUrl,

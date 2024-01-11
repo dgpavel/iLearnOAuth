@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { authAppInitializerFactory } from './auth/auth-app-initializer.factory';
 import { GeOauthService } from './auth/ge-oauth.service';
+import { environment } from './auth/auth-code-flow.config';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,8 @@ import { GeOauthService } from './auth/ge-oauth.service';
     AppRoutingModule,
     OAuthModule.forRoot({
       resourceServer: {
-        allowedUrls: ['http://localhost:4200/api','http://localhost:8081'],
-        sendAccessToken: true,
+        allowedUrls: [`${environment.apiUrl}`],
+        sendAccessToken: true
       },
     })
   ],
