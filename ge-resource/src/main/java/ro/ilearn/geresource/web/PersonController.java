@@ -1,6 +1,7 @@
 package ro.ilearn.geresource.web;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +15,9 @@ import java.util.UUID;
 public class PersonController {
 
     @GetMapping
-    @PreAuthorize("hasRole('ROLE_AGENT')")
+    @PreAuthorize("hasRole('AGENT')")
     public List<Person> findAll() {
+        Object user = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         List<Person> items = new ArrayList<>();
         items.add(Person.builder()
                 .id(UUID.randomUUID())
