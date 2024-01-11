@@ -1,0 +1,9 @@
+server:
+  port: 9090
+logging:
+  level:
+    org.springframework.security: trace
+app:
+  p12:
+    pwd: 12345678
+    alias: ilearn.ro
